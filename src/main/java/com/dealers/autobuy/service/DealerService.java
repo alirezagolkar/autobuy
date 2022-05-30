@@ -2,7 +2,6 @@ package com.dealers.autobuy.service;
 
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +15,11 @@ import com.dealers.autobuy.repository.DealerRepository;
 @Service
 public class DealerService implements IDealerService {
 
-    @Autowired
-    private DealerRepository dealerRepository;
+    private final DealerRepository dealerRepository;
+
+    public DealerService(DealerRepository dealerRepository) {
+        this.dealerRepository = dealerRepository;
+    }
 
     @Transactional(readOnly = true)
     public Dealer findById(int id) {
