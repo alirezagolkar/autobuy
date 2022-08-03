@@ -18,6 +18,9 @@ import com.dealers.autobuy.model.Role;
 import com.dealers.autobuy.model.User;
 import com.dealers.autobuy.repository.UserRepository;
 
+/**
+ * User service implementation
+ */
 @Service
 public class UserService implements IUserService {
     private final UserRepository userRepository;
