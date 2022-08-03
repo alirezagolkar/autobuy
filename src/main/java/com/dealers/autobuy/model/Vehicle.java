@@ -1,9 +1,10 @@
 package com.dealers.autobuy.model;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -62,11 +63,12 @@ public class Vehicle {
     @OneToMany(
             mappedBy = "vehicle",
             cascade = {
-                    CascadeType.ALL,
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
             },
             orphanRemoval = true
     )
-    private List<ClientVehicle> clientVehicles = new ArrayList<>();
+    private Set<ClientVehicle> clientVehicles = new HashSet<>();
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Temporal(TemporalType.DATE)
@@ -151,11 +153,11 @@ public class Vehicle {
         this.dealer = dealer;
     }
 
-    public List<ClientVehicle> getClientVehicles() {
+    public Set<ClientVehicle> getClientVehicles() {
         return clientVehicles;
     }
 
-    public void setClientVehicles(List<ClientVehicle> clientVehicles) {
+    public void setClientVehicles(Set<ClientVehicle> clientVehicles) {
         this.clientVehicles = clientVehicles;
     }
 

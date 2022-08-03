@@ -2,7 +2,6 @@ package com.dealers.autobuy.service;
 
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +15,11 @@ import com.dealers.autobuy.repository.ClientRepository;
 @Service
 public class ClientService implements IClientService {
 
-    @Autowired
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
+
+    public ClientService(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
+    }
 
     @Transactional(readOnly = true)
     public Client findById(int id) {
