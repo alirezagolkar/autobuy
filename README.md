@@ -1,8 +1,8 @@
-# Auto Buy Application
+# Dealers Application
 Auto buy project using Java version 11, Spring Boot, Spring Data JPA, MySql and Hibernate.
 
 ### Purpose ###
-The purpose of the application is publishing vehicles with a base price. Then users of the application are able to bid for the vehicles. The vehicle will be sold to the user with the highest.
+The purpose of the application is publishing vehicles with a base price by auto dealers. Then users of the application are able to bid for the vehicles. The vehicle will be sold to the user with the highest bid price.
 
 ### Settings ###
 
